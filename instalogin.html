@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instagram Intro</title>
+
+  <!-- Roboto Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .img {
+      margin-top: 87px;
+      height: 34vh;
+      width: 60vw;
+      max-width: 300px;
+    }
+
+    .info {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: -80px;
+      padding: 0 1.5rem;
+    }
+
+    .gradient {
+      background: linear-gradient(to right, #ee1a1a, #e60d92);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn {
+      margin-top: 45px;
+      background-color: blue;
+      font-size: 0.98rem;
+      font-family: 'Roboto', sans-serif;
+      height: 5.5vh;
+      width: 58vw;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bolder;
+    }
+
+    .meta-info {
+      margin-top: 280px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .meta-info img {
+      width: 65px;
+      height: auto;
+      margin-top: 0;
+    }
+
+    /* Bottom Nav Styles */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background-color: black;
+      border-top: 1px solid #222;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+    }
+
+    .bottom-nav i {
+      font-size: 22px;
+      color: white;
+    }
+    .reel{
+        /* border: 2px solid white; */
+        top: 10px;
+        width: 26px;
+        height: 26px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="logo.jpg" class="img" alt="Logo" />
+  </div>
+
+  <div class="info">
+    <p>Share what you're into <span class="gradient">with the people who get you.</span></p>
+    <a href="login.html"> <button type="button" class="btn" >Log in</button></a>
+  </div>
+
+  <div class="meta-info">
+    <p>from</p>
+    <img src="meta.png" alt="Meta Logo" />
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <i class="fas fa-home"></i>
+    <i class="fas fa-paper-plane"></i>
+    <img src="reel.png" class="reel"> 
+    <!-- <i class=""> </i> -->
+    <i class="fas fa-search"></i>
+    <i class="fas fa-user"></i>
+  </i>
+ 
+ </div>
+
+
+</body>
+
+</html>
