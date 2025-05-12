@@ -5,26 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inshottershot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Show only on devices wider than 768px (typical tablets/laptops and up) */
+    @media (min-width: 768px) {
+      #mobile-content {
+        display: none;
+      }
+      #desktop-block {
+        display: flex;
+      }
+    }
+
+    /* Hide the desktop message on small/mobile screens */
+    @media (max-width: 767px) {
+      #mobile-content {
+        display: flex;
+      }
+      #desktop-block {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gradient-to-r from-gray-900 via-purple-900 to-gray-900 text-white min-h-screen flex flex-col items-center justify-center">
 
-  <header class="text-center mb-10">
-    <h1 class="text-5xl font-extrabold tracking-tight mb-4">🎯 Inshottershot</h1>
-    <p class="text-xl text-gray-300">The ultimate test of aim, reflex, and glory.</p>
-  </header>
+  <!-- Block shown on larger screens -->
+  <div id="desktop-block" class="hidden flex-col items-center justify-center text-center h-screen w-full">
+    <h1 class="text-3xl font-bold mb-4">🚫 Not available on laptop right now</h1>
+    <p class="text-lg text-gray-400">Please try on your phone.</p>
+  </div>
 
-  <main class="text-center">
-    <div class="space-y-6">
-      <a href="play.html" class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold rounded-2xl shadow-lg transition-all duration-300">
-         Play Now
-      </a>
-      <p class="text-gray-400">No download. Just shoot.</p>
-    </div>
-  </main>
+  <!-- Main content for mobile only -->
+  <div id="mobile-content" class="hidden flex-col items-center justify-center w-full px-4">
+    <header class="text-center mb-10">
+      <h1 class="text-5xl font-extrabold tracking-tight mb-4">🎯 Inshottershot</h1>
+      <p class="text-xl text-gray-300">The ultimate test of aim, reflex, and glory.</p>
+    </header>
 
-  <footer class="absolute bottom-6 text-sm text-gray-500">
-    &copy; 2025 Inshottershot Inc. All rights reserved.
-  </footer>
+    <main class="text-center">
+      <div class="space-y-6">
+        <a href="play.html" class="inline-block px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white text-lg font-semibold rounded-2xl shadow-lg transition-all duration-300">
+          Play Now
+        </a>
+        <p class="text-gray-400">No download. Just shoot.</p>
+      </div>
+    </main>
+
+    <footer class="mt-10 text-sm text-gray-500">
+      &copy; 2025 Inshottershot Inc. All rights reserved.
+    </footer>
+  </div>
 
 </body>
 </html>
